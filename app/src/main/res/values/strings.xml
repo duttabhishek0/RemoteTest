@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RemoteTest</string>
+    <string name="store_api">http://sandbox.bottlerocketapps.com/BR_Android_CodingExam_2015_Server/stores.json</string>
+    <string name="store_tag">StoreApi</string>
+</resources>
