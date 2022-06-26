@@ -4,6 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/activity_root.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/activity_splash.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/activity_store.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/activity_store_list.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/content_store_item.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/content_store_list.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/fragment_map.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/store_list.xml" value="0.23229166666666667" />
+        <entry key="..\:/Projects/RemoteTest/app/src/main/res/layout/store_list_item.xml" value="0.23229166666666667" />
       </map>
     </option>
   </component>

@@ -8,7 +8,8 @@ import com.abhishek.remotetest.RemoteTestApp
 import com.abhishek.remotetest.domain.entity.Store
 import com.abhishek.remotetest.domain.entity.StoreResponse
 import com.abhishek.remotetest.remote.Listener
-import com.abhishek.remotetest.remote.StoreApi
+import com.abhishek.remotetest.remote.StoreApiImpl
+import com.abhishek.remotetest.ui.activity.ActivityListener
 import com.google.gson.Gson
 
 class StoreListVM : ViewModel(), Listener {
@@ -22,7 +23,7 @@ class StoreListVM : ViewModel(), Listener {
 
     val mStoresList: MutableLiveData<List<Store>> = MutableLiveData()
 
-    private val mStoreApiCall: StoreApi by lazy { StoreApi(listener = this) }
+    private val mStoreApiCall: StoreApiImpl by lazy { StoreApiImpl(listener = this) }
 
     init {
         mStoresList.value = mutableListOf()
@@ -32,9 +33,8 @@ class StoreListVM : ViewModel(), Listener {
         this.mActivityListener = viewListener
     }
 
-
     fun getStores(context: Context): MutableLiveData<List<Store>> {
-        mStoreApiCall.callStores(context)
+        mStoreApiCall.fetchStore(context)
         RetrieveStores(mStoresList).execute()
         return mStoresList
     }
@@ -45,10 +45,10 @@ class StoreListVM : ViewModel(), Listener {
 
         // Saving to database
         val appDatabase = RemoteTestApp.getAppDatabase()
-        storeResponse.stores.forEach { store -> appDatabase.storeDoa().insertAll(store) }
+        storeResponse.stores.forEach { store -> appDatabase.storeDao().insertAll(store) }
 
         // making it available for UI
-        mStoresList.postValue(appDatabase.storeDoa().getAll())
+        mStoresList.postValue(appDatabase.storeDao().getAll())
     }
 
     override fun onFailure(response: String) {
@@ -60,12 +60,13 @@ class StoreListVM : ViewModel(), Listener {
     }
 }
 
-class RetrieveStores(private val mStoreList: MutableLiveData<List<Store>>) : AsyncTask<Void, Void, List<Store>>() {
+class RetrieveStores(private val mStoreList: MutableLiveData<List<Store>>) :
+    AsyncTask<Void, Void, List<Store>>() {
 
     @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg empty: Void): List<Store> {
 
-        val storeDoa = RemoteTestApp.getAppDatabase().storeDoa()
+        val storeDoa = RemoteTestApp.getAppDatabase().storeDao()
         return storeDoa.getAll()
     }
 
@@ -77,5 +78,4 @@ class RetrieveStores(private val mStoreList: MutableLiveData<List<Store>>) : Asy
             mStoreList.postValue(result)
         }
     }
-
 }

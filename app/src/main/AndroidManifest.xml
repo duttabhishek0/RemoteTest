@@ -3,7 +3,8 @@
     package="com.abhishek.remotetest">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RemoteTest">
+        <activity
+            android:name=".ui.activity.StoreListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.StoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.RootActivity"
+            android:exported="false" />
         <activity
             android:name=".RemoteTestApp"
             android:exported="true">
