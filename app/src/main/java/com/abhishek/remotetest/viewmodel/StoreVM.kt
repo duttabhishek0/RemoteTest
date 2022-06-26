@@ -10,18 +10,16 @@ class StoreVM : ViewModel() {
 
     private val mStore: MutableLiveData<Store> = MutableLiveData()
 
-
     fun getStore(storeId: String): MutableLiveData<Store> {
 
         RetrieveStore(mStore).execute(storeId)
 
         return mStore
     }
-
 }
 
 class RetrieveStore(private val mStore: MutableLiveData<Store>) : AsyncTask<String, Void, Store>() {
-    
+
     @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg storeId: String): Store {
 
@@ -37,5 +35,4 @@ class RetrieveStore(private val mStore: MutableLiveData<Store>) : AsyncTask<Stri
             mStore.postValue(result)
         }
     }
-
 }
