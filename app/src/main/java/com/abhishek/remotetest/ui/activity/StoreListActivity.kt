@@ -2,7 +2,7 @@ package com.abhishek.remotetest.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.abhishek.remotetest.R
 import com.abhishek.remotetest.domain.entity.Store
 import com.abhishek.remotetest.ui.adapter.StoreAdapter
@@ -26,7 +26,7 @@ class StoreListActivity : RootActivity(), StoreListener {
         setSupportActionBar(toolbar)
         rootView = root_view_CL
 
-        storeListVM = ViewModelProviders.of(this).get(StoreListVM::class.java)
+        storeListVM = ViewModelProvider(this).get(StoreListVM::class.java)
         storeListVM.setView(this)
         storeListVM.getStores(baseContext)
 

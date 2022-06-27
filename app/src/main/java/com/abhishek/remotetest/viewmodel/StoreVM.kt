@@ -23,8 +23,8 @@ class RetrieveStore(private val mStore: MutableLiveData<Store>) : AsyncTask<Stri
     @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg storeId: String): Store {
 
-        val storeDoa = RemoteTestApp.getAppDatabase().storeDao()
-        return storeDoa.storeByIds(storeID = storeId[0])
+        val storeDao = RemoteTestApp.getAppDatabase().storeDao()
+        return storeDao.storeByIds(storeID = storeId[0])
     }
 
     @Deprecated("Deprecated in Java")
