@@ -50,9 +50,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         mapView.onCreate(savedInstanceState)
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         savedInstanceState?.let {
             storeName = savedInstanceState.getString(STORE_NAME_KEY, "Macy's")
             storeLatitude = savedInstanceState.getString(LATITUDE_KEY, "28.068052")
